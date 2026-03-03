@@ -90,6 +90,28 @@
             display: block;
         }
     }
+    .mobile-controls {
+    /* ... avvalgi kodlar ... */
+    transition: opacity 0.2s ease-out; /* Yumshoq yo'qolish va paydo bo'lish */
+    will-change: opacity;
+}
+/* Faqat yozuv va strelka uchun o'tish effekti */
+.toggle-text, .back-arrow-icon {
+    transition: opacity 0.2s ease-out;
+    will-change: opacity;
+}
+
+/* 3 ta chiziq (hamburger) har doim 100% ko'rinib turadi */
+.hamburger-icon {
+    opacity: 1 !important;
+    color: #000;
+}
+
+/* Fon doim oq bo'lib turishi uchun (agar xohlasangiz) */
+.mobile-controls {
+    opacity: 1 !important; 
+    background: rgba(255, 255, 255, 0.95); /* Bir oz shaffof fon maqolani to'smaydi */
+}
 </style>
 </head>
 <body>
@@ -190,5 +212,26 @@
     </div>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script type="module" src="script.js"></script>
+<script>
+    window.addEventListener('scroll', function() {
+        // Faqat yozuv va strelkani tanlab olamiz
+        const text = document.querySelector('.toggle-text');
+        const arrow = document.querySelector('.back-arrow-icon');
+        
+        if (!text || !arrow) return;
+
+        let scrollPos = window.scrollY;
+        let fadeLimit = 150; // 150 pikseldan keyin butunlay yo'qoladi
+
+        if (scrollPos <= fadeLimit) {
+            let opacityValue = 1 - (scrollPos / fadeLimit);
+            text.style.opacity = opacityValue;
+            arrow.style.opacity = opacityValue;
+        } else {
+            text.style.opacity = 0;
+            arrow.style.opacity = 0;
+        }
+    });
+</script>
 </body>
 </html>
