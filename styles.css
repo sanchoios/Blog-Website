@@ -577,4 +577,23 @@ mark {
         width: 20px;
         height: 20px;
     }
+    /* Maqola ichidagi rasmlar EKRANDAN TOSHMASLIGI uchun qat'iy kod */
+.post-content img, 
+#postBody img, 
+#postBody p img {
+    max-width: 100% !important;
+    width: auto !important; /* Rasm o'zining asl hajmidan kattalashib, xiralashib ketmasligi uchun */
+    height: auto !important;
+    display: block !important;
+    margin: 20px auto !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+}
+
+/* Rasm turgan quti (p tegi) ham toshib ketmasligi uchun */
+#postBody p, #postBody {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+}
 }
