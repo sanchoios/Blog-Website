@@ -58,19 +58,59 @@
         line-height: 1.7 !important; /* Matn o'qishga qulay bo'lishi uchun */
         margin-bottom: 20px !important;
     }
+    /* YANGI QO'SHILADIGAN QISM: */
+    .mobile-controls {
+        display: none; 
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sidebar-toggle {
+        display: flex;
+        align-items: center;
+        gap: 12px; 
+        padding: 12px 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #000;
+    }
+
+    .toggle-text {
+        font-size: 18px;
+        font-weight: 500;
+        font-family: inherit;
+    }
+
+    @media (max-width: 768px) {
+        .mobile-controls {
+            display: block;
+        }
+    }
 </style>
 </head>
 <body>
     <!-- Mobile sidebar toggle button - must stay at viewport top -->
     <div class="mobile-controls">
-        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-        </button>
-    </div>
+
+        <svg class="back-arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+
+        <span class="toggle-text">Boshqa postlar</span>
+    </button>
+</div>
+    
 
     <!-- Sidebar overlay for mobile -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
