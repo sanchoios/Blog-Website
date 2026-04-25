@@ -190,22 +190,27 @@
             statusDiv.textContent = "Saqlanmoqda...";
             statusDiv.style.color = "blue";
             try {
+                // MA'LUMOTNI YUBORISH
                 await addDoc(collection(db, "posts"), {
                     title: document.getElementById('title').value,
                     content: document.getElementById('content').value,
                     date: new Date().toISOString(),
-                    timestamp: serverTimestamp()
+                    timestamp: serverTimestamp(),
+                    // BU YERDA MAXFIY KALIT QO'SHILDI:
+                    secret_key: "20ss05myblog" 
                 });
                 statusDiv.textContent = "✅ Maqola muvaffaqiyatli saqlandi!";
                 statusDiv.style.color = "green";
                 form.reset();
                 imageStatus.textContent = "";
             } catch (error) {
+                console.error("Xatolik:", error);
                 statusDiv.textContent = "❌ Saqlashda xatolik yuz berdi.";
                 statusDiv.style.color = "red";
             } finally {
                 submitBtn.disabled = false;
             }
+        });
         });
     } // ELSE QAVSI SHU YERDA TUGAYDI
 </script>
