@@ -6,6 +6,33 @@
     <title>Blog Archive</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Maqola ichidagi barcha havolalar uchun */
+.post-content a {
+    color: #007aff; /* Chiroyli ko'k rang */
+    text-decoration: none; /* Tagidagi chiziqni olib tashlash (ixtiyoriy) */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* Havola ustiga sichqoncha borganda */
+.post-content a:hover {
+    color: #0056b3;
+    text-decoration: underline; /* Ustiga borganda chiziq chiqishi uchun */
+}
+
+/* Tashqi havola iconini qo'shish */
+.post-content a::after {
+    content: " ↗"; /* Bu oddiy belgi, lekin juda minimalist va chiroyli */
+    font-size: 0.8em;
+    margin-left: 3px;
+    vertical-align: super;
+    color: #a1a1aa; /* Icon rangi biroz ochroq bo'lishi uchun */
+}
+
+/* Agar rasmga link berilgan bo'lsa, unda icon chiqmasligi uchun */
+.post-content a:has(img)::after {
+    content: "";
+}
     /* Asosiy qutini toshib ketishdan saqlash (Flexbox muammosini hal qiladi) */
     .content, #postContent, #postBody {
         min-width: 0 !important; 
