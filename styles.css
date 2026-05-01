@@ -611,4 +611,28 @@ mark {
     margin-top: 30px;
     margin-bottom: 15px;
 }
+    .markdown-help {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            width: 180px;
+            font-size: 12px;
+            line-height: 1.6;
+            z-index: 1000;
+        }
+        .markdown-help h4 { margin: 0 0 10px 0; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .markdown-help ul { padding-left: 15px; margin: 0; list-style: none; }
+        .markdown-help li { margin-bottom: 5px; }
+        .markdown-help code { background: #f4f4f5; padding: 2px 4px; border-radius: 3px; font-family: monospace; }
+        
+        /* Ekran kichrayganda (masalan telefonda) yashirib turish uchun */
+        @media (max-width: 1100px) {
+            .markdown-help { display: none; }
+        }
 }
